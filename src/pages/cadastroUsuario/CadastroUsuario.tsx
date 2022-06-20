@@ -46,7 +46,7 @@ function CadastroUsuario() {
         setConfirmarSenha(e.target.value)
     }
 
-    function updatedModel(e: ChangeEvent<HTMLInputElement>){
+    function updatedModel(e: ChangeEvent<HTMLInputElement>) {
 
         setUsuario({
             ...usuario,
@@ -54,11 +54,11 @@ function CadastroUsuario() {
         })
     }
 
-    async function onSubmit(e: ChangeEvent<HTMLFormElement>){
+    async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
 
         e.preventDefault();
-        
-        if(confirmarSenha === usuario.senha){
+
+        if (confirmarSenha === usuario.senha) {
             try {
                 await cadastroUsuario(`/api/Usuarios/cadastrar`, usuario, setUsuarioResultado)
                 toast.success("Usuário cadastrado com sucesso", {
@@ -84,7 +84,7 @@ function CadastroUsuario() {
                 })
             }
 
-        }else{
+        } else {
             toast.error("Dados inconsistentes. Favor verificar as informações de cadastro.", {
                 position: "top-right",
                 autoClose: 2000,
@@ -104,34 +104,52 @@ function CadastroUsuario() {
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={20}>
                     <form onSubmit={onSubmit} >
-                    <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
-                        
+                        <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos2'>Cadastrar</Typography>
+
                         <TextField
                             value={usuario.nome}
-                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='nome' label='nome' variant='outlined' name='nome' margin='normal' fullWidth />
 
                         <TextField
                             value={usuario.email}
-                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='email' label='email' variant='outlined' name='email' margin='normal' type='email' fullWidth />
-                        
+
                         <TextField
                             value={usuario.senha}
-                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
-                        
-                        
+
+
                         <TextField
-                            value={confirmarSenha} 
+                            value={confirmarSenha}
                             onChange={(e: ChangeEvent<HTMLInputElement>) => confirmarSenhaHandle(e)}
                             id='confirmarSenha' label='confirmarSenha' variant='outlined' name='confirmarSenha' margin='normal' type='password' fullWidth />
-                        
+
                         <TextField
                             value={usuario.foto}
-                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='foto' label='foto' variant='outlined' name='foto' margin='normal' fullWidth />
-                                                                               
+
+                        <FormControl
+                            onChange={(e: ChangeEvent<HTMLInputElement>) => updatedModel(e)}
+                            variant="outlined">
+                            <InputLabel htmlFor="outlined-age-native-simple">tipo</InputLabel>
+                            <Select
+                                value={usuario.tipo}
+                                native
+                                label="tipo"
+                                inputProps={{
+                                    name: 'tipo',
+                                    id: 'outlined-age-native-simple',
+                                }}
+                            >
+                                <option aria-label="None" value="" />
+                                <option value="NORMAL">NORMAL</option>
+                            </Select>
+                        </FormControl>
+
                         <Grid container direction="row" justifyContent="space-between" alignItems="center">
                             <Box marginY={2} textAlign='center'>
                                 <Link to='/login' className='text-decorator-none'>
@@ -142,7 +160,7 @@ function CadastroUsuario() {
                             </Box>
                             <Box marginY={2} textAlign='center'>
                                 <Button type='submit' variant='contained' color='primary' className='btnCadastrar' >
-                                        Cadastrar
+                                    Cadastrar
                                 </Button>
                             </Box>
                         </Grid>

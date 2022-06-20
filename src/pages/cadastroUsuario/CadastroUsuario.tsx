@@ -5,6 +5,7 @@ import './CadastroUsuario.css';
 import Usuario from '../../models/Usuario';
 import { cadastroUsuario } from '../../services/Service';
 import { Box } from '@mui/material';
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
     let navigate = useNavigate();
@@ -60,20 +61,45 @@ function CadastroUsuario() {
         if(confirmarSenha === usuario.senha){
             try {
                 await cadastroUsuario(`/api/Usuarios/cadastrar`, usuario, setUsuarioResultado)
-                alert('Usuario cadastrado com sucesso')
+                toast.success("Usuário cadastrado com sucesso", {
+                    position: "top-right",
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "dark",
+                    progress: undefined,
+                })
             } catch (error) {
-                alert('Usuario já cadastrado, tente outro email!')
+                toast.error("Usuario já cadastrado, melhor tentar outro email!", {
+                    position: "top-right",
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false,
+                    theme: "dark",
+                    progress: undefined,
+                })
             }
 
         }else{
-            alert('Dados inconsistentes. Favor verificar as informações de cadastro.')
+            toast.error("Dados inconsistentes. Favor verificar as informações de cadastro.", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+            })
         }
     }
 
-
-
     return (
-        <Grid container direction='row' justifyContent='center' alignItems='center'>
+        <Grid container direction='row' justifyContent='center' alignItems='center' style={{ backgroundColor: '#cbccc7' }}>
             <Grid item xs={6} className='imagem2'></Grid>
             <Grid item xs={6} alignItems='center'>
                 <Box paddingX={20}>
@@ -105,27 +131,7 @@ function CadastroUsuario() {
                             value={usuario.foto}
                             onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
                             id='foto' label='foto' variant='outlined' name='foto' margin='normal' fullWidth />
-                        
-                        
-                        <FormControl 
-                            onChange={(e:ChangeEvent<HTMLInputElement>) => updatedModel(e)}
-                            variant="outlined">
-                            <InputLabel htmlFor="outlined-age-native-simple">tipo</InputLabel>
-                            <Select
-                            value={usuario.tipo}
-                            native
-                            label="tipo"
-                            inputProps={{
-                                name: 'tipo',
-                                id: 'outlined-age-native-simple',
-                            }}
-                            >
-                            <option aria-label="None" value="" />
-                            <option value="NORMAL">NORMAL</option>
-                            <option value="ADMINISTRADOR">ADMINISTRADOR</option>
-                            </Select>
-                        </FormControl>
-                        
+                                                                               
                         <Grid container direction="row" justifyContent="space-between" alignItems="center">
                             <Box marginY={2} textAlign='center'>
                                 <Link to='/login' className='text-decorator-none'>
@@ -135,7 +141,7 @@ function CadastroUsuario() {
                                 </Link>
                             </Box>
                             <Box marginY={2} textAlign='center'>
-                                <Button type='submit' variant='contained' color='primary'>
+                                <Button type='submit' variant='contained' color='primary' className='btnCadastrar' >
                                         Cadastrar
                                 </Button>
                             </Box>

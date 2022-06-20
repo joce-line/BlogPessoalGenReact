@@ -8,6 +8,7 @@ import Usuario from "../../models/Usuario";
 import './Login.css';
 import { useDispatch } from "react-redux";
 import { addToken } from "../../store/tokens/actions";
+import { toast } from "react-toastify";
 
 function Login() {
 
@@ -42,10 +43,27 @@ function Login() {
         try {
 
             await login(`/api/Usuarios/logar`, usuario, setToken, setIdCriador);
-
-            alert('Usuário logado com sucesso!');
+            toast.success("Tudo certo! Usuário logado com sucesso!", {
+                position: "top-right",
+                autoClose: 1500,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+            })
         } catch (error) {
-            alert('Dados do usuário inconsistentes. Erro ao logar!');
+            toast.error("Opa, dados do usuário inconsistentes. Erro ao logar!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+            })
         }
     }
 
@@ -60,11 +78,11 @@ function Login() {
 
     return (
         <>
-            <Grid container direction='row' justifyContent='center' alignItems='center'>
-                <Grid alignItems='center' xs={6}>
+            <Grid container direction='row' justifyContent='center' alignItems='center' style={{ backgroundColor: '#cbccc7' }}>
+                <Grid alignItems='center' xs={6}  >
                     <Box paddingX={20}>
                         <form onSubmit={onSubmit}>
-                            <Typography variant='h3' gutterBottom color='textPrimary' component='h3' align='center' className='textos1'>Entrar</Typography>
+                            <Typography variant='h3' gutterBottom component='h3' align='center' className='textos1'>Entrar</Typography>
 
                             <TextField
                                 value={usuario.email}
@@ -77,14 +95,14 @@ function Login() {
                                 id='senha' label='senha' variant='outlined' name='senha' margin='normal' type='password' fullWidth />
 
                             <Box marginTop={2} textAlign='center'>
-                                <Button type='submit' variant='contained' color='primary'>
+                                <Button type='submit' variant='contained' className="btn-logar">
                                     Logar
                                 </Button>
                             </Box>
                         </form>
                         <Box display='flex' justifyContent='center' marginTop={2}>
                             <Box marginRight={1}>
-                                <Typography variant='subtitle1' gutterBottom align='center'>Não tem uma conta?</Typography>
+                                <Typography variant='subtitle1' gutterBottom align='center'>Quer entrar e não tem uma conta?</Typography>
                             </Box>
                             <Link to='/cadastrousuario'>
                                 <Typography variant='subtitle1' gutterBottom align='center' className='textos1'>Cadastre-se</Typography>

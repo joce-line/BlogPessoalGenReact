@@ -7,6 +7,7 @@ import Tema from '../../../models/Tema';
 import { Box } from '@mui/material';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 
 function DeletarTema() {
@@ -20,7 +21,16 @@ function DeletarTema() {
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+            toast.error("Calma aí! Você precisa estar logado!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "dark",
+                progress: undefined,
+            })
             navigate("/login")
 
         }
@@ -47,7 +57,16 @@ function DeletarTema() {
                 'Authorization': token
             }
         });
-        alert('Tema deletado com sucesso');
+        toast.success("Tema deletado com sucesso", {
+            position: "top-right",
+            autoClose: 1500,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "dark",
+            progress: undefined,
+        })
     }
 
     function nao() {
@@ -61,7 +80,7 @@ function DeletarTema() {
                     <CardContent>
                         <Box justifyContent="center">
                             <Typography color="textSecondary" gutterBottom>
-                                Deseja deletar o Tema:
+                            Opa, tem certeza que quer deletar o Tema:
                             </Typography>
                             <Typography color="textSecondary">
                                 {tema?.descricao}

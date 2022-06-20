@@ -1,8 +1,21 @@
-.cursor{
-    cursor: pointer;
-    color: white;
+.cursor{    
+    color: #323832;
+    
+}
+
+.txt-nav {
+    padding-left: 20px;
 }
 
 .text-decorator-none {
     text-decoration: none;
+}
+
+.navbar {
+    background-color: #879b99 !important;
+}
+
+.toolbar-nav {
+    display: flex;
+    justify-content: space-between !important;
 }

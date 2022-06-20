@@ -51,50 +51,52 @@ function ListaPostagem() {
 
     return (
         <>
-            {
-                posts.map(post => (
-                    <Box m={2} >
-                        <Card variant="outlined">
-                            <CardContent>
-                                <Typography color="textSecondary" gutterBottom>
-                                    Postagens
-                                </Typography>
-                                <Typography variant="h5" component="h2">
-                                    {post.titulo}
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    {post.descricao}
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    {post.tema?.descricao}
-                                </Typography>
-                                <Typography variant="body2" component="p">
-                                    {post.criador?.nome}
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Box display="flex" justifyContent="center" mb={1.5}>
+            <Box className='posts-cx'>
+                {
+                    posts.map(post => (
+                        <Box m={2} >
+                            <Card variant="outlined" className='card-post' >
+                                <Box className='card-content-post' >
+                                    <CardContent>
+                                        <Typography variant="h5" component="h2" className='title-post' >
+                                            {post.titulo}
+                                        </Typography>
+                                        <Typography variant="body2" component="p" className='content-post' >
+                                            {post.descricao}
+                                        </Typography>
+                                        <Typography variant="body2" component="p" className='content-post'>
+                                            {post.tema?.descricao}
+                                        </Typography>
+                                        <Typography variant="body2" component="p" className='content-post'>
+                                            {post.criador?.nome}
+                                        </Typography>
+                                    </CardContent>
+                                    <CardActions>
+                                        <Box display="flex" justifyContent="center" mb={1.5}>
 
-                                    <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
-                                        <Box mx={1}>
-                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
-                                                atualizar
-                                            </Button>
+                                            <Link to={`/formularioPostagem/${post.id}`} className="text-decorator-none" >
+                                                <Box mx={1}>
+                                                    <Button variant="contained" className="button-post" size='small'>
+                                                        atualizar
+                                                    </Button>
+                                                </Box>
+                                            </Link>
+                                            <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
+                                                <Box mx={1}>
+                                                    <Button variant="contained" className="button-post" size='small'>
+                                                        deletar
+                                                    </Button>
+                                                </Box>
+                                            </Link>
                                         </Box>
-                                    </Link>
-                                    <Link to={`/deletarPostagem/${post.id}`} className="text-decorator-none">
-                                        <Box mx={1}>
-                                            <Button variant="contained" size='small' color="secondary">
-                                                deletar
-                                            </Button>
-                                        </Box>
-                                    </Link>
+                                    </CardActions>
+
                                 </Box>
-                            </CardActions>
-                        </Card>
-                    </Box>
-                ))
-            }
+                            </Card>
+                        </Box>
+                    ))
+                }
+            </Box>
         </>
     )
 }

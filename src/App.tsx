@@ -24,7 +24,6 @@ function App() {
       <Router>
         <Navbar />
         
-        <div style={{ minHeight: '100vh' }}>
           <Routes>
             <Route path="/" element={<Login />} />
 
@@ -51,7 +50,7 @@ function App() {
             <Route path="/deletarTema/:id" element={<DeletarTema />} />
 
           </Routes>
-        </div>
+        
 
         <Footer />
       </Router>

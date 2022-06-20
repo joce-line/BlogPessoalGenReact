@@ -6,6 +6,8 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/tokensReducer';
 import { toast } from 'react-toastify';
+import './CadastroTema.css';
+import { Box } from '@mui/material';
 
 
 function CadastroTema() {
@@ -14,7 +16,7 @@ function CadastroTema() {
     const { id } = useParams<{ id: string }>();
     const token = useSelector<TokenState, TokenState["tokens"]>(
         (state) => state.tokens
-      );
+    );
     const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ''
@@ -103,13 +105,17 @@ function CadastroTema() {
     }
 
     return (
-        <Container maxWidth="sm" className="topo">
+        <Container maxWidth="sm" className="topo-cad-tema">
             <form onSubmit={onSubmit}>
-                <Typography variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
-                <TextField value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descricao" variant="outlined" name="descricao" margin="normal" fullWidth />
-                <Button type="submit" variant="contained" color="primary">
-                    Finalizar
-                </Button>
+                <Typography className='txt-cad-tema' variant="h3" color="textSecondary" component="h1" align="center" >Formulário de cadastro tema</Typography>
+                <Box className='flex-cad-tema'>
+                    <TextField className='input-cad-tema' value={tema.descricao} onChange={(e: ChangeEvent<HTMLInputElement>) => updatedTema(e)} id="descricao" label="descrição do tema" variant="outlined" name="descricao" margin="normal" />
+                    <Box className='button-cad-tema'>
+                        <Button className="btn-cad-tema" type="submit" variant="contained" >
+                            Finalizar
+                        </Button>
+                    </Box>
+                </Box>
             </form>
         </Container>
     )

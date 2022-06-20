@@ -1,20 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap');
+
+
 .caixa{
-    background-color: #3F51B5;
+    background-image: url('https://i.imgur.com/KwdjclE.jpg');
+    background-size: cover;
+}
+
+.home-welcome {
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .titulo{
-    color: white !important;
+    color: #323832 !important;
     font-weight: bold !important;
+    font-family: 'Courgette', cursive !important;
 }
 
 .botao{
-    border-color: white !important;
+    border-color: #f6ca73 !important;
     background-color: #3F51B5;
-    color: white !important;
+    color: #323832 !important;
 }
 
 .postagens{
-    background-color: white;
+        
+    background-color: #cbccc7;
 }
 
 .text-decorator-none {

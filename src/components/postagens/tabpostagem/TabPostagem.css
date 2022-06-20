@@ -1,3 +1,11 @@
 .titulo {
     font-weight: bold;
 }
+
+.appBar-post {
+    background-color: #879b99 !important;
+}
+
+.tab-txt {
+    color: #323832 !important;
+}

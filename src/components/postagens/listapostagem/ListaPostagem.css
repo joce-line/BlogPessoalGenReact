@@ -1,3 +1,74 @@
-.text-decorator-none{
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap');
+
+.text-decorator-none {
     text-decoration: none;
+}
+
+.posts-cx {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 70px;
+    background-color: #cbccc7;
+
+}
+
+.card-post {
+    width: 270px;
+    height: 254px;
+    padding: 2%;
+    background: rgb(255, 255, 255);
+    border-radius: 10px !important;
+    border-bottom: 2px solid #88979a !important;
+    border-right: 2px solid #88979a !important;
+    border-top: 2px solid rgb(246, 246, 246);
+    border-left: 2px solid rgb(246, 246, 246);
+    transition-duration: 1s;
+    transition-property: border-top,
+        border-left,
+        border-bottom,
+        border-right,
+        box-shadow;
+}
+
+.card-post:hover {
+    border-top: 2px solid #88979a;
+    border-left: 2px solid #88979a;
+    border-bottom: 2px solid rgb(57, 78, 112);
+    border-right: 2px solid rgb(57, 78, 112);
+    box-shadow: rgba(66, 95, 117, 0.4) 5px 5px, rgba(67, 90, 120, 0.3) 10px 10px, rgba(67, 98, 121, 0.2) 15px 15px, rgba(69, 102, 124, 0.1) 20px 20px, rgba(69, 100, 124, 0.05) 25px 25px;
+}
+
+.card-content-post {
+    text-align: center;
+}
+
+.title-post {
+    color: #323832;
+    font-family: 'Courgette', cursive !important;
+}
+
+.content-post {
+    color: rgb(36, 65, 89);
+    padding-bottom: 1rem;
+}
+
+.button-post {
+    background-color: rgb(255, 255, 255) !important;
+    color: #0f273dcf !important;
+    font-weight: 700 !important;
+    border-radius: .2rem !important;
+    border: 1px solid #0f273dcf !important;
+    padding: .5rem !important;
+    margin: 1rem !important;
+    transition-duration: 1s !important;
+    transition-property: background-color, color, border !important;
+}
+
+.button-post:hover {
+    color: white !important;
+    background-color: rgb(29, 66, 96) !important;
+    border: 1px solid white !important;
+    box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em !important;
 }

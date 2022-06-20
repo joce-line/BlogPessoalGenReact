@@ -1,3 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap');
+
 .topo{
     margin-top: 20px;
+}
+
+.txt-cad-post {
+    color: #323832;
+    font-family: 'Courgette', cursive !important;
+    font-size: 40px !important;
+}
+
+.btn-cad-post {
+    background-color: #f6ca73 !important;
+    color: #424a3b !important;
+    font-weight: bold !important;
 }

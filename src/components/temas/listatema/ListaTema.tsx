@@ -50,41 +50,47 @@ function ListaTema() {
 
     return (
         <>
+        <Box className='temas-cx'>
             {
                 temas.map(tema => (
-                    <Box m={2} >
-                        <Card variant="outlined">
-                            <CardContent>
-                                <Typography color="textSecondary" gutterBottom>
+                    <Box m={2} className='tema-card2' >
+                        <Card variant="outlined" className='tema-card' >
+                            <Box className='position-card'>
+                            <CardContent  >
+                                <Typography  gutterBottom>
                                     Tema
                                 </Typography>
-                                <Typography variant="h5" component="h2">
+                                <Typography variant="h5" className='txt-tema' component="h2">
                                     {tema.descricao}
                                 </Typography>
                             </CardContent>
-                            <CardActions>
-                                <Box display="flex" justifyContent="center" mb={1.5} >
 
+                            <CardActions >
+                                <Box display="flex" justifyContent="center" mb={1.5} className='btns-cx' >
                                     <Link to={`/formularioTema/${tema.id}`} className="text-decorator-none">
-                                        <Box mx={1}>
-                                            <Button variant="contained" className="marginLeft" size='small' color="primary" >
+                                        <Box mx={1} className='button-list-tema' >
+                                            <Button variant="contained" className="btn-tema update" size='small'>
                                                 atualizar
                                             </Button>
                                         </Box>
                                     </Link>
                                     <Link to={`/deletarTema/${tema.id}`} className="text-decorator-none">
-                                        <Box mx={1}>
-                                            <Button variant="contained" size='small' color="secondary">
+                                        <Box mx={1} className='button-list-tema'>
+                                            <Button variant="contained" className="btn-tema delete" size='small'>
                                                 deletar
                                             </Button>
                                         </Box>
                                     </Link>
                                 </Box>
                             </CardActions>
+
+                            </Box>
                         </Card>
                     </Box>
                 ))
             }
+
+        </Box>
         </>
     );
 }

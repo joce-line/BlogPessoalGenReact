@@ -75,27 +75,27 @@ function DeletarTema() {
 
     return (
         <>
-            <Box m={2}>
+            <Box m={2} className='del-tema-cx'>
                 <Card variant="outlined">
                     <CardContent>
                         <Box justifyContent="center">
                             <Typography color="textSecondary" gutterBottom>
                             Opa, tem certeza que quer deletar o Tema:
                             </Typography>
-                            <Typography color="textSecondary">
+                            <Typography className='txt-tema'>
                                 {tema?.descricao}
                             </Typography>
                         </Box>
                     </CardContent>
                     <CardActions>
-                        <Box display="flex" justifyContent="start" ml={1.0} mb={2} >
-                            <Box mx={2}>
-                                <Button onClick={sim} variant="contained" className="marginLeft" size='large' color="primary">
+                        <Box display="flex" justifyContent="center" ml={1.0} mb={2} mt={5} >
+                            <Box mx={2} className='button-del-tema'>
+                                <Button onClick={sim} variant="contained" className="btn-del-tema update" size='large'>
                                     Sim
                                 </Button>
                             </Box>
-                            <Box mx={2}>
-                                <Button onClick={nao} variant="contained" size='large' color="secondary">
+                            <Box mx={2} className='button-del-tema'>
+                                <Button onClick={nao} variant="contained" className="btn-del-tema delete" size='large'>
                                     Não
                                 </Button>
                             </Box>

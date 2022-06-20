@@ -1,3 +1,56 @@
-.topo{
+@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Raleway&display=swap');
+
+.topo-cad-tema{
+    padding: 70px;
+    background-color: #cbccc7;
+    min-height: 70vh;
+    min-width: 98vw;
+}
+
+.txt-cad-tema {
+    font-family: 'Courgette', cursive !important;
+    padding-bottom: 50px;
+}
+
+.flex-cad-tema {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-cad-tema {
+    width: 80%;
+}
+
+.button-cad-tema {
+    --button_radius: 0.75em;
+    --button_color: #46757d ;
+    --button_outline_color: #46757d;
+    font-size: 17px !important;
+    font-weight: bold !important;
+    border: none;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
     margin-top: 20px;
+}
+
+.btn-cad-tema {
+    display: block !important;
+    box-sizing: border-box !important;
+    border: 2px solid var(--button_outline_color) !important;
+    border-radius: var(--button_radius) !important;
+    padding: 0.55em .5em !important;
+    background: var(--button_color);
+    color: var(--button_outline_color) !important;
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease !important;
+}
+
+.button-cad-tema:hover .btn-cad-tema {
+    transform: translateY(-0.33em);
+}
+
+.button-cad-tema:active .btn-cad-tema {
+    transform: translateY(0);
 }

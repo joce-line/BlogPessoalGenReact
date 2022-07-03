@@ -11,7 +11,6 @@
     justify-content: center;
     padding: 70px;
     background-color: #cbccc7;
-    min-height: 70vh;
 }
 
 .tema-card2 {
@@ -60,7 +59,7 @@
 
 .button-list-tema {
     --button_radius: 0.75em;
-    --button_color: #46757d;
+    --button_color: #46757d ;
     --button_outline_color: #46757d;
     font-size: 17px !important;
     font-weight: bold !important;
@@ -93,70 +92,7 @@
     background-color: #d4dddf !important;
     color: #323832 !important;
 }
-
 .delete {
     background-color: #d4dddf !important;
     color: red !important;
-}
-
-/* For input search */
-.cx-search {
-    background-color: #cbccc7;
-    padding: 30px;
-}
-
-.group {
-    display: flex;
-    line-height: 28px;
-    align-items: center;
-    position: relative;
-    max-width: 30rem;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-}
-
-.input {
-    width: 100%;
-    height: 40px;
-    line-height: 28px;
-    padding: 0 1rem;
-    padding-left: 2.5rem;
-    border: 2px solid transparent;
-    border-radius: 20px;
-    outline: none;
-    background-color: #f3f3f4;
-    color: #0d0c22;
-    transition: .3s ease;
-}
-
-.input::placeholder {
-    color: #9e9ea7;
-}
-
-.input:focus,
-input:hover {
-    outline: none;
-    border-color: rgba(97, 76, 234, 0.4);
-    background-color: #fff;
-    box-shadow: 0 0 0 4px rgba(81, 76, 234, 0.1);
-}
-
-.icon-tema {
-    fill: #9e9ea7;
-    width: 1.8rem;
-    height: 1.8rem;
-    cursor: pointer;
-}
-
-button {
-    background: transparent;
-    border: none;
-}
-
-.clear-btn {
-    color: #46757d;
-    text-align: center;
-    cursor: pointer;
-    text-transform: uppercase;
 }
